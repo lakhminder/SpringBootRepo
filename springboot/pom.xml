@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.lucky.maven.spring</groupId>
+  <artifactId>springboot</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <!-- This is needed to make it a springboot project 
+  As springboot is convention based(convention over configuration) so it will follow convention which applies normally to 80% usecases
+  Out project is child of springboot from which it inherits its properties/configuration as default
+  Parent config kind of controls versions of interrelated dependencies which work well using springboot version
+  This is called Bill of Materials in Spring
+  -->
+  <parent>
+  	<groupId>org.springframework.boot</groupId>
+  	<artifactId>spring-boot-starter-parent</artifactId>
+  	<version>1.4.2.RELEASE</version>
+  </parent>
+  
+  <!-- This is kind of metadependency as our project is web project 
+  This will only download jars and not the parent config
+  
+  -->
+  <dependencies> 
+    <dependency>
+    	<groupId>org.springframework.boot</groupId>
+    	<artifactId>spring-boot-starter-web</artifactId>    	
+    </dependency>
+    <!-- for Actuator -->
+    <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+  </dependency>
+  </dependencies>
+  
+  
+  
+  <!-- Since 1.6 is defalut in springboot parent -->
+  <properties>
+  	<java.version>1.8</java.version>
+  </properties>
+  
+</project>
